@@ -13,10 +13,13 @@ import java.util.ArrayList;
  */
 public class Departamento {
     private String Nombre;
-    private ArrayList<Empleado> listaEmpleado;
+
 
     public Departamento(String Nombre) {
         this.Nombre = Nombre;
+    }
+
+    public Departamento() {
     }
 
     public String getNombre() {
@@ -27,18 +30,9 @@ public class Departamento {
         this.Nombre = Nombre;
     }
 
-    public ArrayList<Empleado> getListaEmpleado() {
-        return listaEmpleado;
-    }
-
-    public void setListaEmpleado(ArrayList<Empleado> listaEmpleado) {
-        this.listaEmpleado = listaEmpleado;
-    }
-
     @Override
     public String toString() {
-        return "Departamento{" + "Nombre=" + Nombre + ", listaEmpleado=" + listaEmpleado + '}';
-    }
-    
+        return "Departamento{" + "Nombre=" + Nombre + '}';
+    }    
     
 }

@@ -14,7 +14,9 @@ import java.util.ArrayList;
 public class Personal {
     private String Usuario;
     private String Contraseña;
-    private ArrayList<Empleado> listaEmpleado;
+
+    public Personal() {
+    }
     
     public Personal(String Usuario, String Contraseña) {
         this.Usuario = Usuario;
@@ -37,18 +39,9 @@ public class Personal {
         this.Contraseña = Contraseña;
     }
 
-    public ArrayList<Empleado> getListaEmpleado() {
-        return listaEmpleado;
-    }
-
-    public void setListaEmpleado(ArrayList<Empleado> listaEmpleado) {
-        this.listaEmpleado = listaEmpleado;
-    }
-
     @Override
     public String toString() {
-        return "Personal{" + "Usuario=" + Usuario + ", Contrase\u00f1a=" + Contraseña + ", listaEmpleado=" + listaEmpleado + '}';
-    }
-    
+        return "Personal{" + "Usuario=" + Usuario + ", Contrase\u00f1a=" + Contraseña + '}';
+    } 
  
 }

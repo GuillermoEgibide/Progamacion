@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import ejer1p5.Ejer1P5;
+
 /**
  *
  * @author 1GDAW12
@@ -27,21 +29,181 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jToolBar1 = new javax.swing.JToolBar();
+        jToggleButton2 = new javax.swing.JToggleButton();
+        jToggleButton3 = new javax.swing.JToggleButton();
+        jToggleButton4 = new javax.swing.JToggleButton();
+        bNumeroEmpleado = new javax.swing.JToggleButton();
+        bDepartamento = new javax.swing.JToggleButton();
+        bContrato = new javax.swing.JToggleButton();
+        jToggleButton5 = new javax.swing.JToggleButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        miAlta = new javax.swing.JMenuItem();
+        miModificacion = new javax.swing.JMenuItem();
+        miBaja = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        miNumeroEmpleado = new javax.swing.JMenuItem();
+        miContrato = new javax.swing.JMenuItem();
+        miDepartamento = new javax.swing.JMenuItem();
+        mSalir = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setText("Bienvenido");
+
+        jLabel2.setText("Indica que operacion deseas realizar");
+
+        jToolBar1.setRollover(true);
+
+        jToggleButton2.setText("Alta");
+        jToggleButton2.setFocusable(false);
+        jToggleButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jToggleButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jToggleButton2);
+
+        jToggleButton3.setText("Baja");
+        jToggleButton3.setFocusable(false);
+        jToggleButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jToggleButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jToggleButton3);
+
+        jToggleButton4.setText("Modificacion");
+        jToggleButton4.setFocusable(false);
+        jToggleButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jToggleButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jToggleButton4);
+
+        bNumeroEmpleado.setText("ListadoPorNumero");
+        bNumeroEmpleado.setFocusable(false);
+        bNumeroEmpleado.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bNumeroEmpleado.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(bNumeroEmpleado);
+
+        bDepartamento.setText("ListadoPorDepartamento");
+        bDepartamento.setFocusable(false);
+        bDepartamento.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bDepartamento.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(bDepartamento);
+
+        bContrato.setText("ListadoPorContrato");
+        bContrato.setFocusable(false);
+        bContrato.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bContrato.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(bContrato);
+
+        jToggleButton5.setText("Salir");
+        jToggleButton5.setFocusable(false);
+        jToggleButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jToggleButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jToggleButton5);
+
+        jMenu1.setText("Personas");
+
+        miAlta.setText("Alta");
+        miAlta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miAltaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(miAlta);
+
+        miModificacion.setText("Modificacion");
+        jMenu1.add(miModificacion);
+
+        miBaja.setText("Baja");
+        jMenu1.add(miBaja);
+
+        jMenu3.setText("Listado");
+
+        miNumeroEmpleado.setText("Por numero de empleado");
+        miNumeroEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miNumeroEmpleadoActionPerformed(evt);
+            }
+        });
+        jMenu3.add(miNumeroEmpleado);
+
+        miContrato.setText("Por contrato");
+        miContrato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miContratoActionPerformed(evt);
+            }
+        });
+        jMenu3.add(miContrato);
+
+        miDepartamento.setText("Por departamento");
+        miDepartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miDepartamentoActionPerformed(evt);
+            }
+        });
+        jMenu3.add(miDepartamento);
+
+        jMenu1.add(jMenu3);
+
+        jMenuBar1.add(jMenu1);
+
+        mSalir.setText("Salir");
+        mSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mSalirActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(mSalir);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 706, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(181, 181, 181))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(261, 261, 261)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(115, 115, 115)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addContainerGap(198, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void miNumeroEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miNumeroEmpleadoActionPerformed
+       bNumeroEmpleado.doClick();
+    }//GEN-LAST:event_miNumeroEmpleadoActionPerformed
+
+    private void miAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_miAltaActionPerformed
+
+    private void miDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miDepartamentoActionPerformed
+        bDepartamento.doClick();
+    }//GEN-LAST:event_miDepartamentoActionPerformed
+
+    private void mSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mSalirActionPerformed
+        Ejer1P5.cerrarVentana();
+    }//GEN-LAST:event_mSalirActionPerformed
+
+    private void miContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miContratoActionPerformed
+       bContrato.doClick();
+    }//GEN-LAST:event_miContratoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +241,25 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton bContrato;
+    private javax.swing.JToggleButton bDepartamento;
+    private javax.swing.JToggleButton bNumeroEmpleado;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JToggleButton jToggleButton3;
+    private javax.swing.JToggleButton jToggleButton4;
+    private javax.swing.JToggleButton jToggleButton5;
+    private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JMenu mSalir;
+    private javax.swing.JMenuItem miAlta;
+    private javax.swing.JMenuItem miBaja;
+    private javax.swing.JMenuItem miContrato;
+    private javax.swing.JMenuItem miDepartamento;
+    private javax.swing.JMenuItem miModificacion;
+    private javax.swing.JMenuItem miNumeroEmpleado;
     // End of variables declaration//GEN-END:variables
 }

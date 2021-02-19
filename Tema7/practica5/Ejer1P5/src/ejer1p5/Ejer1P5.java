@@ -14,14 +14,15 @@ import java.util.ArrayList;
  * @author 1GDAW12
  */
 public class Ejer1P5 {
-    private static ArrayList<Personal> listaPersonal;
+    private static Personal[] listaPersonal;
     private static ArrayList<Empleado> listaEmpleado;
-    private static ArrayList<Contrato> listaContrato;
-    private static ArrayList<Departamento> listaDepartamento;
+    private static Contrato[] listaContrato;
+    private static Departamento[] listaDepartamento;
     
     private static VistaEntrada v1;
     private static VentanaPrincipal v2;
     
+     private static Empleado empleado;
     /**
      * @param args the command line arguments
      */
@@ -33,25 +34,28 @@ public class Ejer1P5 {
     }
 
     private static void generarDatos() {
-        listaContrato = new ArrayList<Contrato>();
-        listaContrato.add(new Contrato("Indefinido"));
-        listaContrato.add(new Contrato("Temporal"));
-        listaContrato.add(new Contrato("Por obra o servicio"));
-        listaContrato.add(new Contrato("Eventual"));
-        listaContrato.add(new Contrato("Interinidad"));
-        listaContrato.add(new Contrato("Relevo"));
-        listaContrato.add(new Contrato("Formacion y aprandizaje"));
-        listaContrato.add(new Contrato("Practicas"));
-
-        listaDepartamento = new ArrayList<Departamento>();
-        listaDepartamento.add(new Departamento("Personal"));
-        listaDepartamento.add(new Departamento("Limpieza"));
-        listaDepartamento.add(new Departamento("Jefe"));
-        listaDepartamento.add(new Departamento("Personal"));
         
-        
+        listaContrato = new Contrato[2];
+        listaContrato[0] = new Contrato();
+        listaContrato[0].setNombre("Indefinido");
+        listaContrato[1]= new Contrato();
+        listaContrato[0].setNombre("Relevo");
  
+        
+        listaDepartamento = new Departamento[3];
+        listaDepartamento[0] = new Departamento();
+        listaDepartamento[0].setNombre("Personal");
+        listaDepartamento[1] = new Departamento();
+        listaDepartamento[1].setNombre("Produccion");
+        listaDepartamento[2] = new Departamento();
+        listaDepartamento[2].setNombre("Informatica");
+        
+        listaEmpleado = new ArrayList<Empleado>();
+       
+        
+        
     }
+    
 
     public static void salir() {
         v1.dispose();
@@ -66,8 +70,36 @@ public class Ejer1P5 {
     }
 
     public static void volverEmpezar() {
+        v1.dispose();
         v1 = new VistaEntrada();
         v1.setVisible(true);
+    }
+
+    public static boolean validarNombre(String usuario) {
+        int x;
+        for(x = 0; x < listaPersonal.length && listaPersonal[x].getUsuario().compareToIgnoreCase(usuario)!= 0; x++){}
+        if (x == listaPersonal.length)
+        {
+            personal = null;
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean validarContraseña(String contraseña) {
+        int x;
+        for(x = 0; x < listaPersonal.length && listaPersonal[x].getUsuario().compareToIgnoreCase(contraseña)!= 0; x++){}
+        if (x == listaPersonal.length)
+        {
+            personal = null;
+            return false;
+        }
+        return true;
+    }
+
+    public static void cerrarVentana() {
+       v2.dispose();
+       System.exit(0);
     }
     
 }

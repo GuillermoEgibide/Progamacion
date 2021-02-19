@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -17,14 +18,15 @@ public class Empleado {
     private String Nombre_Apellido;
     private String Direccion;
     private String Telefono;
-    private String Sexo;
-    private String EstadoCivil;
-    private ArrayList<Contrato> TipoContrato;
-    private ArrayList<Departamento> Departamento;
-    private String FechaAlta;
-    private int NumeroEmpleado;
+    private Character Sexo;
+    private Character EstadoCivil;
+    private Contrato TipoContrato;
+    private Departamento Departamento;
+    private LocalDate FechaAlta;
+    private String NumeroEmpleado;
+    private Personal Usuario;
 
-    public Empleado(String DNI, String NSS, String Nombre_Apellido, String Direccion, String Telefono, String Sexo, String EstadoCivil, ArrayList<Contrato> TipoContrato, ArrayList<Departamento> Departamento, String FechaAlta, int NumeroEmpleado) {
+    public Empleado(String DNI, String NSS, String Nombre_Apellido, String Direccion, String Telefono, Character Sexo, Character EstadoCivil, Contrato TipoContrato, Departamento Departamento, LocalDate FechaAlta, String NumeroEmpleado, Personal Usuario) {
         this.DNI = DNI;
         this.NSS = NSS;
         this.Nombre_Apellido = Nombre_Apellido;
@@ -36,6 +38,7 @@ public class Empleado {
         this.Departamento = Departamento;
         this.FechaAlta = FechaAlta;
         this.NumeroEmpleado = NumeroEmpleado;
+        this.Usuario = Usuario;
     }
 
     public String getDNI() {
@@ -78,52 +81,60 @@ public class Empleado {
         this.Telefono = Telefono;
     }
 
-    public String getSexo() {
+    public Character getSexo() {
         return Sexo;
     }
 
-    public void setSexo(String Sexo) {
+    public void setSexo(Character Sexo) {
         this.Sexo = Sexo;
     }
 
-    public String getEstadoCivil() {
+    public Character getEstadoCivil() {
         return EstadoCivil;
     }
 
-    public void setEstadoCivil(String EstadoCivil) {
+    public void setEstadoCivil(Character EstadoCivil) {
         this.EstadoCivil = EstadoCivil;
     }
 
-    public ArrayList<Contrato> getTipoContrato() {
+    public Contrato getTipoContrato() {
         return TipoContrato;
     }
 
-    public void setTipoContrato(ArrayList<Contrato> TipoContrato) {
+    public void setTipoContrato(Contrato TipoContrato) {
         this.TipoContrato = TipoContrato;
     }
 
-    public ArrayList<Departamento> getDepartamento() {
+    public Departamento getDepartamento() {
         return Departamento;
     }
 
-    public void setDepartamento(ArrayList<Departamento> Departamento) {
+    public void setDepartamento(Departamento Departamento) {
         this.Departamento = Departamento;
     }
 
-    public String getFechaAlta() {
+    public LocalDate getFechaAlta() {
         return FechaAlta;
     }
 
-    public void setFechaAlta(String FechaAlta) {
+    public void setFechaAlta(LocalDate FechaAlta) {
         this.FechaAlta = FechaAlta;
     }
 
-    public int getNumeroEmpleado() {
+    public String getNumeroEmpleado() {
         return NumeroEmpleado;
     }
 
-    public void setNumeroEmpleado(int NumeroEmpleado) {
+    public void setNumeroEmpleado(String NumeroEmpleado) {
         this.NumeroEmpleado = NumeroEmpleado;
+    }
+
+    public Personal getUsuario() {
+        return Usuario;
+    }
+
+    public void setUsuario(Personal Usuario) {
+        this.Usuario = Usuario;
     }
 
     @Override

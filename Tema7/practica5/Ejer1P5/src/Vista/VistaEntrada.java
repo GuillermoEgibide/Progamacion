@@ -5,7 +5,9 @@
  */
 package Vista;
 
+import Excepciones.*;
 import ejer1p5.Ejer1P5;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,11 +15,14 @@ import ejer1p5.Ejer1P5;
  */
 public class VistaEntrada extends javax.swing.JFrame {
 
+    private int contador = 0;
+    private float Integer NUMEROINTENTOSMAXIMOS = 3;
     /**
      * Creates new form VistaEntrada
      */
     public VistaEntrada() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -123,10 +128,14 @@ public class VistaEntrada extends javax.swing.JFrame {
     }//GEN-LAST:event_bSalirActionPerformed
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
+        do{
         if(datosCorrectos())
             Ejer1P5.ventanaPrincipal();
         else
             Ejer1P5.volverEmpezar();
+        contador++;
+        }
+        while(contador == 3);
     }//GEN-LAST:event_bAceptarActionPerformed
 
     /**
@@ -175,6 +184,26 @@ public class VistaEntrada extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private boolean datosCorrectos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try{
+            if(tfUsuario.getText().isEmpty())
+                throw new DatoObligatorio();
+            if(!Ejer1P5.validarNombre(tfUsuario.getText()))
+                throw new DatoNoValido();
+                
+             if(tfContraseña.getText().isEmpty())
+                throw new DatoObligatorio();
+            if(!Ejer1P5.validarContraseña(tfContraseña.getText()))
+                throw new DatoNoValido();
+            
+             return true;   
+        }
+        catch(DatoObligatorio e){
+            JOptionPane.showMessageDialog(null,"No puedes dejar algo en blanco");
+            return false;
+        }   
+        catch(DatoNoValido e){
+            JOptionPane.showMessageDialog(null, "Usuario o Contraseña incorrecta");
+            return false;
+        }
     }
 }

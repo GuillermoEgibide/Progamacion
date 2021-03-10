@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2>Restaurante DAW</h2>
+        <b>Haz tu reserva</b><br><br>
+        <form action="controlador" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre"><br>
+            <label for="correo">Correo electronico:</label>
+            <input type="email" id="correo"><br>
+            <label for="telefono">Telefono:</label>
+            <input type="tel" id="telefono" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{2}"><br>
+            <label for="dia">Fecha de reserva:</label>
+            <input type="date" id="dia" name="fechas"><br>
+            <label for="hor">Franja horaria:</label>
+            <select id="hor" name="fechas">
+		<option value="1">13:00--14:00</option>
+		<option value="2">14:00--15:00</option>
+            </select><br>
+            <label for="min">Comensales (min 1, max 10):</label>
+            <input type="number" min="1" max="10" id="min" name="comensal"><br>
+            <label for="col">Color del mantel</label>
+            <input type="color" id="col" name="colores"><br>
+            <label for="dem">Demandas especiales</label><br>
+            <textarea name="demandas" id="dem" rows="2">Alergias, tronas, ...</textarea><br>
+            <input type="submit" value="Enviar" name="enviar">
+        </form>
+    </body>
+</html>

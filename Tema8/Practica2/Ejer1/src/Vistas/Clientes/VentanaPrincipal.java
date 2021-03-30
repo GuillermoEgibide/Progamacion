@@ -45,8 +45,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         miConsultaAbogado = new javax.swing.JMenuItem();
         mCasos = new javax.swing.JMenu();
         miAltaCasos = new javax.swing.JMenuItem();
+        miAsignarAgobado = new javax.swing.JMenuItem();
         miBajaCasos = new javax.swing.JMenuItem();
         miModificacionCasos = new javax.swing.JMenuItem();
+        miEditarEstado = new javax.swing.JMenuItem();
         miConsultaCasos = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -133,9 +135,27 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         mCasos.setText("Casos");
 
         miAltaCasos.setText("Alta");
+        miAltaCasos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miAltaCasosActionPerformed(evt);
+            }
+        });
         mCasos.add(miAltaCasos);
 
+        miAsignarAgobado.setText("Asignar Abogado");
+        miAsignarAgobado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miAsignarAgobadoActionPerformed(evt);
+            }
+        });
+        mCasos.add(miAsignarAgobado);
+
         miBajaCasos.setText("Baja");
+        miBajaCasos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miBajaCasosActionPerformed(evt);
+            }
+        });
         mCasos.add(miBajaCasos);
 
         miModificacionCasos.setText("Modificacion");
@@ -146,7 +166,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         mCasos.add(miModificacionCasos);
 
+        miEditarEstado.setText("Editar Estado");
+        miEditarEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miEditarEstadoActionPerformed(evt);
+            }
+        });
+        mCasos.add(miEditarEstado);
+
         miConsultaCasos.setText("Consulta");
+        miConsultaCasos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miConsultaCasosActionPerformed(evt);
+            }
+        });
         mCasos.add(miConsultaCasos);
 
         jMenuBar1.add(mCasos);
@@ -193,7 +226,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void miModificacionCasosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miModificacionCasosActionPerformed
-        // TODO add your handling code here:
+        Ejer1.abrirVentanaModificacionCasos();
     }//GEN-LAST:event_miModificacionCasosActionPerformed
 
     private void miAltaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaClienteActionPerformed
@@ -231,6 +264,26 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void miConsultaAbogadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultaAbogadoActionPerformed
         Ejer1.abrirVentanaConsultaAbogado();
     }//GEN-LAST:event_miConsultaAbogadoActionPerformed
+
+    private void miAltaCasosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaCasosActionPerformed
+        Ejer1.abrirVentanaAltaCasos();
+    }//GEN-LAST:event_miAltaCasosActionPerformed
+
+    private void miBajaCasosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaCasosActionPerformed
+        Ejer1.abrirVentanaBajaCasos();
+    }//GEN-LAST:event_miBajaCasosActionPerformed
+
+    private void miEditarEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miEditarEstadoActionPerformed
+        Ejer1.abrirVentanaEstadoCasos();
+    }//GEN-LAST:event_miEditarEstadoActionPerformed
+
+    private void miConsultaCasosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultaCasosActionPerformed
+        Ejer1.abrirVentanaConsultaCasos();
+    }//GEN-LAST:event_miConsultaCasosActionPerformed
+
+    private void miAsignarAgobadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAsignarAgobadoActionPerformed
+        Ejer1.abrirVentanaAsignarAbogadoCasos();
+    }//GEN-LAST:event_miAsignarAgobadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,12 +332,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem miAltaAbogado;
     private javax.swing.JMenuItem miAltaCasos;
     private javax.swing.JMenuItem miAltaCliente;
+    private javax.swing.JMenuItem miAsignarAgobado;
     private javax.swing.JMenuItem miBajaAbogado;
     private javax.swing.JMenuItem miBajaCasos;
     private javax.swing.JMenuItem miBajaCliente;
     private javax.swing.JMenuItem miConsultaAbogado;
     private javax.swing.JMenuItem miConsultaCasos;
     private javax.swing.JMenuItem miConsultaCliente;
+    private javax.swing.JMenuItem miEditarEstado;
     private javax.swing.JMenuItem miModificacionAbogados;
     private javax.swing.JMenuItem miModificacionCasos;
     private javax.swing.JMenuItem miModificacionCliente;

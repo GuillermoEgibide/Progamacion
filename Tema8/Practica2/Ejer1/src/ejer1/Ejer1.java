@@ -8,6 +8,7 @@ package ejer1;
 import BaseDatos.*;
 import Modelo.*;
 import Vistas.Abogados.*;
+import Vistas.Casos.*;
 import Vistas.Clientes.*;
 import javax.swing.JOptionPane;
 
@@ -19,6 +20,7 @@ public class Ejer1 {
     private static BaseDatos bd;
     private static TablaCliente tc;
     private static TablaAbogados ta;
+    private static TablaCasos tca;
     
     private static VentanaPrincipal vp;
     private static VentanaClientes vc;
@@ -31,6 +33,13 @@ public class Ejer1 {
     private static VentanaModificacionAbogados vma;
     private static VentanaConsultaAbogado vca;
 
+    private static VentanaAltaCasos vac;
+    private static VentanaBajaCaso vbca;
+    private static VentanaAsignarAbogadoCaso vaac;
+    private static VentanaConsultaCasos vcca;
+    private static VentanaModificarCasos vmca;
+    private static VentanaActualizarEstadoCaso vaec;
+    
     private static Cliente c;
     private static Abogado a;
     /**
@@ -42,7 +51,8 @@ public class Ejer1 {
             bd.conectar();
             
             tc = new TablaCliente(bd.getCon());
-            /*ta = new TablaCliente(bd.getCon());*/
+            ta = new TablaAbogados(bd.getCon());
+            tca = new TablaCasos(bd.getCon());
             
             vp = new VentanaPrincipal();
             vp.setVisible(true);
@@ -138,5 +148,39 @@ public class Ejer1 {
 
     public static void cerrarVentanaConsultaAbogados() {
        vca.dispose();
+    }
+
+    public static void abrirVentanaAltaCasos() {
+        vac = new VentanaAltaCasos();
+        vac.setVisible(true);
+    }
+
+    public static void abrirVentanaBajaCasos() {
+        vbca = new VentanaBajaCaso();
+        vbca.setVisible(true);
+    }
+
+    public static void abrirVentanaModificacionCasos() {
+        vmca = new VentanaModificarCasos();
+        vmca.setVisible(true);
+    }
+
+    public static void abrirVentanaEstadoCasos() {
+        vaec = new VentanaActualizarEstadoCaso();
+        vaec.setVisible(true);
+    }
+
+    public static void abrirVentanaConsultaCasos() {
+         vcca = new VentanaConsultaCasos();
+         vcca.setVisible(true);
+    }
+
+    public static void abrirVentanaAsignarAbogadoCasos() {
+        vaac = new VentanaAsignarAbogadoCaso ();
+        vaac.setVisible(true);
+    }
+
+    public static void salirVentanaConsultaCasos() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

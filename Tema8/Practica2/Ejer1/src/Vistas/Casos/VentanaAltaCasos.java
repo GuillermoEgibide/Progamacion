@@ -5,6 +5,9 @@
  */
 package Vistas.Casos;
 
+import ejer1.Ejer1;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 1GDAW12
@@ -17,6 +20,8 @@ public class VentanaAltaCasos extends javax.swing.JFrame {
     public VentanaAltaCasos() {
         initComponents();
         this.setLocationRelativeTo(null);
+        tfEstado.setEnabled(false);
+        tfEstado.setText("En Tramite");
     }
 
     /**
@@ -53,8 +58,18 @@ public class VentanaAltaCasos extends javax.swing.JFrame {
         jLabel5.setText("DNI Cliente");
 
         bCancelar.setText("Cancelar");
+        bCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCancelarActionPerformed(evt);
+            }
+        });
 
         bAceptar.setText("Aceptar");
+        bAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAceptarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -119,6 +134,21 @@ public class VentanaAltaCasos extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
+       Ejer1.cerrarVentanaAltaCasos();
+    }//GEN-LAST:event_bCancelarActionPerformed
+
+    private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
+        try{
+            Ejer1.darAltaCaso(tfNumExpediente.getText(),dpFechaInicio.getDate(),tfEstado.getText(),tfDniCliente.getText());
+            JOptionPane.showMessageDialog(this, "Caso dado de alta");
+            Ejer1.cerrarVentanaAltaCasos();
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_bAceptarActionPerformed
 
     /**
      * @param args the command line arguments

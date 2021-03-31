@@ -5,6 +5,8 @@
  */
 package Vistas.Casos;
 
+import ejer1.Ejer1;
+
 /**
  *
  * @author 1GDAW12
@@ -42,6 +44,11 @@ public class VentanaBajaCaso extends javax.swing.JFrame {
         jLabel2.setText("Num Expediente");
 
         jToggleButton1.setText("Cancelar");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         jToggleButton2.setText("Aceptar");
 
@@ -84,6 +91,10 @@ public class VentanaBajaCaso extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        Ejer1.cerrarVentanaBajaCaso();
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments

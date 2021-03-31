@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -13,9 +14,11 @@ import java.util.ArrayList;
  */
 public class Casos {
     private int numExpediente;
+    private LocalDate fechaIncico;
+    private LocalDate fechaFinalizacion;
     private Cliente c;
     private ArrayList<Abogado> listaAbogado;
-    private Juicio j;
+
 
     public Casos() {
     }
@@ -24,13 +27,32 @@ public class Casos {
         this.c = c;
     }
 
-    public Juicio getJ() {
-        return j;
+    public Casos(int numExpediente, LocalDate fechaIncico, LocalDate fechaFinalizacion, Cliente c) {
+        this.numExpediente = numExpediente;
+        this.fechaIncico = fechaIncico;
+        this.fechaFinalizacion = fechaFinalizacion;
+        this.c = c;
     }
 
-    public void setJ(Juicio j) {
-        this.j = j;
+    
+    
+    public LocalDate getFechaIncico() {
+        return fechaIncico;
     }
+
+    public void setFechaIncico(LocalDate fechaIncico) {
+        this.fechaIncico = fechaIncico;
+    }
+
+    public LocalDate getFechaFinalizacion() {
+        return fechaFinalizacion;
+    }
+
+    public void setFechaFinalizacion(LocalDate fechaFinalizacion) {
+        this.fechaFinalizacion = fechaFinalizacion;
+    }
+    
+    
 
     public int getNumExpediente() {
         return numExpediente;
@@ -58,7 +80,7 @@ public class Casos {
 
     @Override
     public String toString() {
-        return "Casos{" + "numExpediente=" + numExpediente + ", c=" + c + ", listaAbogado=" + listaAbogado + ", j=" + j + '}';
+        return "Casos{" + "numExpediente=" + numExpediente + ", fechaIncico=" + fechaIncico + ", fechaFinalizacion=" + fechaFinalizacion + ", c=" + c + ", listaAbogado=" + listaAbogado + '}';
     }
-    
+   
 }

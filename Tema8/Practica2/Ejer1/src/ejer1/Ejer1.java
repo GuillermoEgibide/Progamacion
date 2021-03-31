@@ -10,6 +10,7 @@ import Modelo.*;
 import Vistas.Abogados.*;
 import Vistas.Casos.*;
 import Vistas.Clientes.*;
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
 
 /**
@@ -42,6 +43,8 @@ public class Ejer1 {
     
     private static Cliente c;
     private static Abogado a;
+    private static Casos ca;
+    
     /**
      * @param args the command line arguments
      */
@@ -181,6 +184,31 @@ public class Ejer1 {
     }
 
     public static void salirVentanaConsultaCasos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        vcca.dispose();
+    }
+
+    public static void cerrarVentanaAltaCasos() {
+       vac.dispose();
+    }
+
+    public static void cerrarVentanaActualizarEstadoCaso() {
+        vaec.dispose();
+    }
+
+    public static void cerrarVentanaAsignarAbogadoCaso() {
+        vaac.dispose();
+    }
+
+    public static void cerrarVentanaBajaCaso() {
+        vbca.dispose();
+    }
+
+    public static void cerrarVentanaModificacionCasos() {
+        vmca.dispose();
+    }
+
+    public static void darAltaCaso(String numExpediente, LocalDate fechaInicio, String estado, String dniCliente) {
+        ca = new Casos(numExpediente,fechaInicio,estado,dniCliente);
+        tca.insertar();
     }
 }

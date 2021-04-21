@@ -6,7 +6,7 @@
 package ejer2;
 
 import ModeloBD.*;
-import ModeloUML.Evento;
+import ModeloUML.*;
 import Vista.VentanaAsistencia;
 import Vista.VentanaEventos;
 import Vista.VentanaModificacion;
@@ -34,6 +34,8 @@ public class Ejer2 {
     private static VentanaModificacion vm;
     private static VentanaAsistencia va;
     private static Evento e;
+    private static Persona p;
+    private static Empresa em;
     /**
      * @param args the command line arguments
      */
@@ -94,6 +96,8 @@ public class Ejer2 {
     }
 
     public static void ventanaConfirmarAsistencia() {
+        
+        
         va = new VentanaAsistencia();
         va.setVisible(true);
     }
@@ -114,4 +118,48 @@ public class Ejer2 {
        eventobd.edit(e);
     }
 
+    public static int numeroAcontecimientos() {
+       return eventobd.
+    }
+
+    public static String obtenerNombre(int x) {
+        return
+    }
+
+   public static String getNombre(){
+       return p.getNombre();
+   }
+   
+   public static String getApellidos(){
+       return p.getApellidos();
+   }
+   
+   public static String getTelefono(){
+       return p.getTelefono();
+   }
+   
+   public static String getNombreEmpresa(){
+       return em.getNombre();
+   }
+   
+   public static int getNif(){
+       return em.getNif();
+   }
+   
+   public static int getCnae(){
+       return em.getCnae();
+   }
+   
+   public static String getRazonSocial(){
+       return em.getRazonSocial();
+   }
+
+    public static void darAltaPersonaEmpresa(String dni, String nombrePersona, String apellido, String telefono, String nif, String nombreEmpresa, String razonSocial, String CNAE) throws Exception {
+       p = new Persona(dni,nombrePersona,apellido,telefono);
+       personabd.create(p);
+    
+       e = new Empresa(Integer.parseInt(nif),nombrePersona,razonSocial,Integer.parseInt(CNAE));
+       empresabd.create(e);
+       
+    }
 }

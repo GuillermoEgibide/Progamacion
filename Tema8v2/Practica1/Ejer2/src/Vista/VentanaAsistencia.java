@@ -12,15 +12,24 @@ import ejer2.Ejer2;
  * @author 1GDAW12
  */
 public class VentanaAsistencia extends javax.swing.JFrame {
-
+    private boolean encontrado;
     /**
      * Creates new form VentanaAsistencia
      */
     public VentanaAsistencia() {
         initComponents();
+        llenarlista();
         this.setLocationRelativeTo(null);
     }
 
+    
+     private void llenarlista() {
+        int num = Ejer2.numeroAcontecimientos();
+        
+        for(int x = 0;x<num;x++){
+            cbEventos.insertItemAt(Ejer2.obtenerNombre(x),x);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,6 +72,12 @@ public class VentanaAsistencia extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Eventos"));
 
         jLabel1.setText("Nombre Evento");
+
+        cbEventos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbEventosActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Fecha");
 
@@ -125,6 +140,14 @@ public class VentanaAsistencia extends javax.swing.JFrame {
 
         jLabel11.setText("CNAE");
 
+        tfNif.setEnabled(false);
+
+        tfNombreEmpresa.setEnabled(false);
+
+        tfRazonSocial.setEnabled(false);
+
+        tfCNAE.setEnabled(false);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -171,6 +194,23 @@ public class VentanaAsistencia extends javax.swing.JFrame {
                     .addComponent(tfCNAE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        tfDni.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfDniFocusLost(evt);
+            }
+        });
+        tfDni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfDniActionPerformed(evt);
+            }
+        });
+
+        tfNombrePersona.setEnabled(false);
+
+        tfApellido.setEnabled(false);
+
+        tfTelefono.setEnabled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -234,6 +274,11 @@ public class VentanaAsistencia extends javax.swing.JFrame {
         });
 
         bAceptar.setText("Aceptar");
+        bAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAceptarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -273,6 +318,29 @@ public class VentanaAsistencia extends javax.swing.JFrame {
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
        Ejer2.cancelarAsistencia();
     }//GEN-LAST:event_bCancelarActionPerformed
+
+    private void cbEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEventosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbEventosActionPerformed
+
+    private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
+        if(cbEventos.getSelectedIndex() !=1){
+            if(!encontrado){
+                Ejer2.darAltaPersonaEmpresa(tfDni.getText(),tfNombrePersona.getText(),tfApellido.getText(),tfTelefono.getText(),tfNif.getText(),tfNombreEmpresa.getText(),tfRazonSocial.getText(),tfCNAE.getText());
+            }
+            else{
+                
+            }
+        }
+    }//GEN-LAST:event_bAceptarActionPerformed
+
+    private void tfDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDniActionPerformed
+        existeDni();
+    }//GEN-LAST:event_tfDniActionPerformed
+
+    private void tfDniFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfDniFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfDniFocusLost
 
     /**
      * @param args the command line arguments
@@ -338,4 +406,35 @@ public class VentanaAsistencia extends javax.swing.JFrame {
     private javax.swing.JTextField tfTelefono;
     private com.github.lgooddatepicker.components.TimePicker tpHora;
     // End of variables declaration//GEN-END:variables
+
+    private void existeDni() {
+        encontrado = Ejer2.verPersona(tfDni.getText());
+        if (encontrado){
+            mostrarDatos();
+        }
+        else{
+            habilitarResto();
+        }
+    }
+
+    private void mostrarDatos() {
+        tfNombrePersona.setText(Ejer2.getNombre());
+        tfApellido.setText(Ejer2.getApellidos());
+        tfTelefono.setText(Ejer2.getNombre());;
+        tfNif.setText(Ejer2.getNombre());
+        tfNombreEmpresa.setText(Ejer2.getNombre());
+        tfRazonSocial.setText(Ejer2.getNombre());
+        tfCNAE.setText(Ejer2.getNombre());
+    }
+
+    private void habilitarResto() {
+        tfNombrePersona.setEditable(true);
+        tfApellido.setEditable(true);
+        tfTelefono.setEditable(true);
+        tfNif.setEditable(true);
+        tfNombreEmpresa.setEditable(true);
+        tfRazonSocial.setEditable(true);
+        tfCNAE.setEditable(true);
+    }
+
 }
